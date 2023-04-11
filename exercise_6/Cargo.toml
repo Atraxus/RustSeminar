@@ -1,0 +1,28 @@
+[package]
+name = "tasks"
+version = "0.1.0"
+authors = ["You <you@your-computer.de>"]
+edition = "2018"
+
+[profile.release]
+lto = true
+opt-level = 3
+
+[profile.bench]
+lto = true
+
+[lib]
+name = "task"
+
+[dependencies]
+rayon = "1.7"
+
+[dev-dependencies]
+proptest = "1.1"
+criterion = { version = "0.4", features = ["html_reports"] }
+crossbeam = "0.8"
+rand = "0.8"
+
+[[bench]]
+name = "benchmark"
+harness = false
